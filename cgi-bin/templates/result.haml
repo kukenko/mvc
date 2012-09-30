@@ -1,0 +1,19 @@
+-#encoding: utf-8
+%html
+  %head
+    %meta{ :'http-equiv' => 'content', :content => 'text/html; charset=utf-8' }
+    %title YouTube Search - 検索結果
+    %style(type='text/css') ul li { list-style-type: none; display: inline; }
+  %body
+    %h1 YouTube Search
+
+    %form(method='get')
+      %input(type='text' name='q')
+      %input(type='submit' value='検索')
+
+    %h2== 検索結果 (#{entries.size})
+    %ul
+      - entries.each do |e|
+        %li
+          %a{ href: e.link }
+            %img{ src: e.thumbnail, title: e.title }
